@@ -4,8 +4,8 @@
 #include "mt7981.dtsi"
 
 / {
-	model = "ONE R3 MINI (2.5G LAN)";
-	compatible = "one,r3-mini", "mediatek,mt7981";
+	model = "R35mini-Router";
+	compatible = "one,r35-mini", "mediatek,mt7981";
 
 	aliases {
 		led-boot = &led_sys_blue;

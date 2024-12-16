@@ -3,7 +3,8 @@ KERNEL_LOADADDR := 0x48080000
 MT7981_USB_PKGS := automount blkid blockdev fdisk \
     kmod-nls-cp437 kmod-nls-iso8859-1 kmod-usb2 kmod-usb3 \
     luci-app-usb-printer luci-i18n-usb-printer-zh-cn \
-    kmod-usb-net-rndis usbutils
+    kmod-usb-net-rndis usbutils kmod-mt7981-firmware \
+    mt7981-wo-firmware kmod-nvme
 
 define Device/mt7981-spim-nor-rfb
   DEVICE_VENDOR := MediaTek
@@ -811,11 +812,11 @@ endef
 TARGET_DEVICES += routerich_ax3000
 
   DEVICE_VENDOR := ONE
-  DEVICE_MODEL := R3-MINI
-  DEVICE_DTS := mt7981-one-r3-mini
+  DEVICE_MODEL := R35mini-Router
+  DEVICE_DTS := mt7981-one-r35-mini
   DEVICE_DTS_DIR := $(DTS_DIR)/mediatek
-  SUPPORTED_DEVICES := one,r3-mini
-  DEVICE_PACKAGES := $(MT7981_USB_PKGS) kmod-hwmon-pwmfan luci-app-samba4
+  SUPPORTED_DEVICES := one,r35-mini
+  DEVICE_PACKAGES := $(MT7981_USB_PKGS) kmod-hwmon-pwmfan luci-app-samba4 luci-app-ttyd
    UBINIZE_OPTS := -E 5
   BLOCKSIZE := 128k
   PAGESIZE := 2048
@@ -824,4 +825,4 @@ TARGET_DEVICES += routerich_ax3000
   IMAGE/factory.bin := append-ubi | check-size $$$$(IMAGE_SIZE)
   IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
 endef
-TARGET_DEVICES += one_r3-mini
+TARGET_DEVICES += one_r35-mini
